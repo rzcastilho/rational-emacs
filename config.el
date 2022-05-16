@@ -27,9 +27,22 @@
 ;; Set further font and theme customizations
 (custom-set-variables
    '(rational-ui-default-font
-     '(:font "JetBrains Mono" :weight light :height 150)))
-
+     '(:font "JetBrains Mono" :weight light :height 120)))
+;; Load theme
 (load-theme 'doom-dracula t)
+
+;; Backup files
+(setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
+
+;; Lock files
+(setq create-lockfiles nil)
+
+;; Auto save files
+;; auto-save-mode doesn't create the path automatically!
+(make-directory (expand-file-name "tmp/auto-saves/" user-emacs-directory) t)
+
+(setq auto-save-list-file-prefix (expand-file-name "tmp/auto-saves/sessions/" user-emacs-directory)
+      auto-save-file-name-transforms `((".*" ,(expand-file-name "tmp/auto-saves/" user-emacs-directory) t)))
 
 ;; To not load `custom.el' after `config.el', uncomment this line.
 (setq rational-load-custom-file nil)
