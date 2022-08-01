@@ -28,8 +28,15 @@
 (custom-set-variables
    '(rational-ui-default-font
      '(:font "JetBrains Mono" :weight light :height 120)))
+
+;; Install themes
+(rational-package-install-package 'doom-themes)
+(rational-package-install-package 'cherry-blossom-theme)
+(rational-package-install-package 'zenburn-theme)
+(rational-package-install-package 'color-theme-sanityinc-tomorrow)
+
 ;; Load theme
-(load-theme 'doom-dracula t)
+(load-theme 'zenburn t)
 
 ;; Backup files
 (setq backup-directory-alist `(("." . ,(expand-file-name "tmp/backups/" user-emacs-directory))))
@@ -46,5 +53,8 @@
 
 ;; To not load `custom.el' after `config.el', uncomment this line.
 (setq rational-load-custom-file nil)
+
+;; JS Identation
+(setq js-indent-level 2)
 
 ;;; example-config.el ends here
